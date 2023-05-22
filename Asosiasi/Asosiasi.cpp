@@ -12,7 +12,7 @@ class dokter;
 		}
 
 		void tambahDokter(dokter*);
-		void cetakDoketr();
+		void cetakDokter();
 };
 
 class dokter {
@@ -42,4 +42,33 @@ void dokter::tambahPasien(pasien* pPasien) {
 	daftar_pasien.push_back(pPasien);
 	pPasien->tambahDokter(this);
 }
+void dokter::cetakPasien() {
+	cout << "Daftar Pasien dari dokter \"" << this->nama << "\":\n";
+	for (auto& a : daftar_pasien) {
+		cout << a->nama << "\n";
+	}
+	cout << endl;
+}
 
+int main() {
+	dokter* varDokter1 = new dokter("dr. Rezza");
+	dokter* varDokter2 = new dokter("dr. Shenn");
+	pasien* varPasien1 = new pasien("Gondrong");
+	pasien* varPasien2 = new pasien("Botak");
+
+	varDokter1->tambahPasien(varPasien1);
+	varDokter1->tambahPasien(varPasien2);
+	varDokter2->tambahPasien(varPasien1);
+
+	varDokter1->cetakPasien();
+	varDokter2->cetakPasien();
+	varPasien1->cetakDokter();
+	varPasien2->cetakDokter();
+
+	delete varPasien1;
+	delete varPasien2;
+	delete varDokter1;
+	delete varDokter2;
+
+	return 0;
+}
