@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 class orang {
@@ -7,7 +8,7 @@ public:
 
 	orang(string pNama) :
 		nama(pNama) {
-		cout << "orang dibuat\n" << endl;
+		cout << "Orang dibuat\n" << endl;
 	}
 	~orang() {
 		cout << "Orang dihapus\n" << endl;
@@ -25,7 +26,10 @@ public:
 	pelajar(string pNama, string pSekolah) :
 		orang(pNama),
 		sekolah(pSekolah) {
-		cout << "Pelajar dihapus\n" << endl;
+		cout << "Pelajar dibuat\n" << endl;
+	}
+	~pelajar() {
+		cout << "\nPelajar dihapus\n" << endl;
 	}
 	string perkenalan() {
 		return "Hallo, nama saya " + nama + " dari sekolah " + sekolah + "\n\n";
